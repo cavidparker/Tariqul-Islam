@@ -1,0 +1,83 @@
+package first_project;
+import java.util.Scanner;
+public class Varsity_application {
+	public static void main (String args[]){
+		Scanner sc = new Scanner (System.in);
+		//String p=sc.nextLine();
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+	
+	
+System.out.println(a+b);
+
+}
+}
+
+
+
+
+
+
+package first_project;
+
+import java.io.DataInputStream;
+import java.io.InputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+	public static void main (String args[]){
+		
+		try{
+		ServerSocket ss = new ServerSocket(6000); 
+		Socket s1 = ss.accept();
+		InputStream in = s1.getInputStream();
+		DataInputStream di = new DataInputStream(in);
+		String p = di.readUTF();
+		System.out.println(p);
+		
+		
+		
+		
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+			
+		}
+		
+	}
+}
+
+
+
+
+
+package first_project;
+
+import java.net.Socket;
+import java.io.OutputStream;
+import java.io.DataOutputStream;
+
+public class Client {
+	public static void main(String arg[]){
+		
+		try{
+			
+			Socket s2 = new Socket("localhost",6000);
+			OutputStream o = s2.getOutputStream();
+			DataOutputStream dout = new DataOutputStream(o);
+			dout.writeUTF("Hello man");
+			
+			
+			}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+			
+			
+			
+			
+			
+		}
+	}
+
+}
